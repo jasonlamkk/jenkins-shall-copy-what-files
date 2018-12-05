@@ -8,9 +8,9 @@ curl -s -o tmp-exclude.txt https://raw.githubusercontent.com/jasonlamkk/jenkins-
 arrFiles=$(ls ${1})
 for f in $arrFiles
 do
-    if [[ ${arrFiles[*]} =~ $f ]]; then
+    if [[ ${arrExclude[*]} =~ $f ]]; then
         echo "Skip : ${f}"
     else
-        docker cp ${1}/${f} ${2}:${3}/${f}
+        echo "Copying ${f}" && docker cp ${1}/${f} ${2}:${3}/${f} && echo "Success"
     fi
 done
