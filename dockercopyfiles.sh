@@ -11,6 +11,6 @@ do
     if [[ ${arrExclude[*]} =~ $f ]]; then
         echo "Skip : ${f}"
     else
-        echo "Copying ${f}" && docker cp ${1}/${f} ${2}:${3}/${f} && echo "Success"
+        echo "Copying ${f}" && docker cp ${1}/${f} ${2}:${3}/ && echo "Success"
     fi
 done
